@@ -129,8 +129,7 @@ namespace TASWODespatchMetrics
                     client.Send(mail);
                 }
             }
-            Console.WriteLine("Finished Despatch");
-            Console.ReadKey();
+           
             try
             {
                 if (CreateDirectoryStructure(out fileInfo, theDate, theDateHours, @"WOVSThroughput\WorksOrderThroughput", @"MRP Standup Reports", false))
