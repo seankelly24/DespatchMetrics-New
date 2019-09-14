@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="reportThas01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="THAS_CONNECT_DespatchSeats" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <Function Name="THAS_CONNECT_VSWOThroughput" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <EntityContainer Name="reportThas01ModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="reportThas01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="reportThas01Entities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="THAS_CONNECT_DespatchSeats" ReturnType="Collection(reportThas01Model.THAS_CONNECT_DespatchSeats_Result)" />
+          <FunctionImport Name="THAS_CONNECT_VSWOThroughput" ReturnType="Collection(reportThas01Model.THAS_CONNECT_VSWOThroughput_Result)" />
+        </EntityContainer>
+        <ComplexType Name="THAS_CONNECT_DespatchSeats_Result">
+          <Property Type="String" Name="WorksOrderNumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="SerialNumber" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Transaction_Type" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Transaction_Date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Part_Number" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Batch" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Batch_Location" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Current_Batch_Location" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Method_Version" Nullable="true" MaxLength="151" />
+          <Property Type="String" Name="Reference" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="Part_Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Method_Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Unit_Of_Measure" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Default_Location_Code" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Product_Group_Code" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Responsibility_Codes" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="CommercialNotes" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="THAS_CONNECT_VSWOThroughput_Result">
+          <Property Type="String" Name="WorksOrderNumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="MethodType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Value_Stream" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="TransactionDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="LocationCode" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="Quantity" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="String" Name="Transacted_By" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="SalesNotes" Nullable="true" />
+          <Property Type="String" Name="WorksOrderStatus" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="reportThas01ModelStoreContainer" CdmEntityContainer="reportThas01Entities" >
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_DespatchSeats" FunctionName="reportThas01Model.Store.THAS_CONNECT_DespatchSeats">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="reportThas01Model.THAS_CONNECT_DespatchSeats_Result">
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction Type" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction Date" />
+                <ScalarProperty Name="Part_Number" ColumnName="Part Number" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+                <ScalarProperty Name="Batch_Location" ColumnName="Batch Location" />
+                <ScalarProperty Name="Current_Batch_Location" ColumnName="Current Batch Location" />
+                <ScalarProperty Name="Method_Version" ColumnName="Method/Version" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="User_Name" ColumnName="User Name" />
+                <ScalarProperty Name="Part_Description" ColumnName="Part Description" />
+                <ScalarProperty Name="Method_Type" ColumnName="Method Type" />
+                <ScalarProperty Name="Unit_Of_Measure" ColumnName="Unit Of Measure" />
+                <ScalarProperty Name="Default_Location_Code" ColumnName="Default Location Code" />
+                <ScalarProperty Name="Product_Group_Code" ColumnName="Product Group Code" />
+                <ScalarProperty Name="Responsibility_Codes" ColumnName="Responsibility Codes" />
+                <ScalarProperty Name="CommercialNotes" ColumnName="CommercialNotes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_VSWOThroughput" FunctionName="reportThas01Model.Store.THAS_CONNECT_VSWOThroughput">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="reportThas01Model.THAS_CONNECT_VSWOThroughput_Result">
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="MethodType" ColumnName="MethodType" />
+                <ScalarProperty Name="RCode" ColumnName="RCode" />
+                <ScalarProperty Name="Value_Stream" ColumnName="Value Stream" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Transacted_By" ColumnName="Transacted By" />
+                <ScalarProperty Name="SalesNotes" ColumnName="SalesNotes" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConnectDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SeatThroughputHourlyResultSet">
+          <Key>
+            <PropertyRef Name="SeatThroughput_ID" />
+          </Key>
+          <Property Name="SeatThroughput_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CommercialNote" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SerialNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+          <Property Name="PartNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PartDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PaxCount" Type="int" Nullable="false" />
+          <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BatchLocation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CurrentBatchLocation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MethodType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DefaultLocationCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProductGroupCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RespCode" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ConnectDbModelStoreContainer">
+          <EntitySet Name="SeatThroughputHourlyResultSet" EntityType="Self.SeatThroughputHourlyResultSet" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConnectDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ConnectDbEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="SeatThroughputHourlyResultSets" EntityType="ConnectDbModel.SeatThroughputHourlyResultSet" />
+        </EntityContainer>
+        <EntityType Name="SeatThroughputHourlyResultSet">
+          <Key>
+            <PropertyRef Name="SeatThroughput_ID" />
+          </Key>
+          <Property Name="SeatThroughput_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorksOrderNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommercialNote" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PartNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaxCount" Type="Int32" Nullable="false" />
+          <Property Name="Batch" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BatchLocation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentBatchLocation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MethodType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultLocationCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductGroupCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RespCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConnectDbModelStoreContainer" CdmEntityContainer="ConnectDbEntities" >
+          <EntitySetMapping Name="SeatThroughputHourlyResultSets">
+            <EntityTypeMapping TypeName="ConnectDbModel.SeatThroughputHourlyResultSet">
+              <MappingFragment StoreEntitySet="SeatThroughputHourlyResultSet">
+                <ScalarProperty Name="RespCode" ColumnName="RespCode" />
+                <ScalarProperty Name="ProductGroupCode" ColumnName="ProductGroupCode" />
+                <ScalarProperty Name="DefaultLocationCode" ColumnName="DefaultLocationCode" />
+                <ScalarProperty Name="MethodType" ColumnName="MethodType" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="CurrentBatchLocation" ColumnName="CurrentBatchLocation" />
+                <ScalarProperty Name="BatchLocation" ColumnName="BatchLocation" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+                <ScalarProperty Name="PaxCount" ColumnName="PaxCount" />
+                <ScalarProperty Name="PartDescription" ColumnName="PartDescription" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="CommercialNote" ColumnName="CommercialNote" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="SeatThroughput_ID" ColumnName="SeatThroughput_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
